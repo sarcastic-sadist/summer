@@ -1,0 +1,154 @@
+int signal_1_red=13;
+int signal_1_yellow=12;
+int signal_1_green=2;
+int signal_2_red=3;
+int signal_2_yellow=4;
+int signal_2_green=5;
+int signal_3_red=6;
+int signal_3_yellow=7;
+int signal_3_green=8;
+int signal_4_red=9;
+int signal_4_yellow=10;
+int signal_4_green=11;
+int time_slot;
+
+void setup()
+{
+   pinMode(signal_1_red,OUTPUT);
+   pinMode(signal_1_yellow,OUTPUT);
+   pinMode(signal_1_green,OUTPUT);
+   pinMode(signal_2_red,OUTPUT);
+   pinMode(signal_2_yellow,OUTPUT);
+   pinMode(signal_2_green,OUTPUT);
+   pinMode(signal_3_red,OUTPUT);
+   pinMode(signal_3_yellow,OUTPUT);
+   pinMode(signal_3_green,OUTPUT);
+   pinMode(signal_4_red,OUTPUT);
+   pinMode(signal_4_yellow,OUTPUT);
+   pinMode(signal_4_green,OUTPUT);
+   Serial.begin(9600);
+}
+
+void loop()
+{
+  Serial.println("Choose a time slot(1-4)");
+  Serial.println("1. 3 am to 6 am");
+  Serial.println("2. 6 am to 9 am");
+  Serial.println("3. 9 am to 9 pm");
+  Serial.println("4. 9 pm to 3 pm");
+  while (Serial.available()==0)
+  {}
+  time_slot=Serial.parseInt();
+ 
+  
+  if (time_slot==1)
+  {
+    for (int i=1;i<=10;i++)
+  
+  {
+     digitalWrite(signal_1_yellow,HIGH);
+     digitalWrite(signal_2_yellow,HIGH);
+     digitalWrite(signal_3_yellow,HIGH);
+     digitalWrite(signal_4_yellow,HIGH);
+     delay(1000);
+     digitalWrite(signal_1_yellow,LOW);
+     digitalWrite(signal_2_yellow,LOW);
+     digitalWrite(signal_3_yellow,LOW);
+     digitalWrite(signal_4_yellow,LOW);
+     delay(1000);
+  }
+  }
+
+  if (time_slot==2)
+  {
+     digitalWrite(signal_1_green,HIGH);
+     digitalWrite(signal_2_red,HIGH);
+     digitalWrite(signal_3_red,HIGH);
+     digitalWrite(signal_4_red,HIGH);
+     delay(3000);
+     digitalWrite(signal_1_green,LOW);
+     digitalWrite(signal_1_yellow,HIGH);
+     delay(1000);
+     digitalWrite(signal_1_yellow,LOW);
+     digitalWrite(signal_1_red,HIGH);
+     digitalWrite(signal_2_green,HIGH);
+     digitalWrite(signal_2_red,LOW);
+     delay(3000);
+     digitalWrite(signal_2_green,LOW);
+     digitalWrite(signal_2_yellow,HIGH);
+     delay(1000);
+     digitalWrite(signal_2_yellow,LOW);
+     digitalWrite(signal_2_red,HIGH);
+     digitalWrite(signal_3_red,LOW);
+     digitalWrite(signal_3_green,HIGH);
+     delay(3000);
+     digitalWrite(signal_3_green,LOW);
+     digitalWrite(signal_3_yellow,HIGH);
+     delay(1000);
+     digitalWrite(signal_3_yellow,LOW);
+     digitalWrite(signal_3_red,HIGH);
+     digitalWrite(signal_4_red,LOW);
+     digitalWrite(signal_4_green,HIGH);
+     delay(3000);
+     digitalWrite(signal_4_green,LOW);
+     digitalWrite(signal_4_yellow,HIGH);
+     delay(1000); 
+     digitalWrite(signal_1_red,LOW);
+     digitalWrite(signal_2_red,LOW);
+     digitalWrite(signal_3_red,LOW);
+     digitalWrite(signal_4_yellow,LOW);
+    
+   }
+   if (time_slot==3)
+   {
+     digitalWrite(signal_1_red,HIGH);
+     digitalWrite(signal_2_green,HIGH);
+     digitalWrite(signal_3_red,HIGH);
+     digitalWrite(signal_4_green,HIGH);
+     delay(3000);
+     digitalWrite(signal_2_green,LOW);
+     digitalWrite(signal_2_yellow,HIGH);
+     digitalWrite(signal_4_green,LOW);
+     digitalWrite(signal_4_yellow,HIGH);
+     delay(1000);
+     digitalWrite(signal_2_yellow,LOW);
+     digitalWrite(signal_4_yellow,LOW);
+     digitalWrite(signal_1_red,LOW);
+     digitalWrite(signal_3_red,LOW);
+     digitalWrite(signal_2_red,HIGH);
+     digitalWrite(signal_1_green,HIGH);
+     digitalWrite(signal_4_red,HIGH);
+     digitalWrite(signal_3_green,HIGH);
+     delay(3000);
+     digitalWrite(signal_2_red,LOW);
+     digitalWrite(signal_4_red,LOW);
+     digitalWrite(signal_1_green,LOW);
+     digitalWrite(signal_1_yellow,HIGH);
+     digitalWrite(signal_3_green,LOW);
+     digitalWrite(signal_3_yellow,HIGH);
+     delay(1000);
+     digitalWrite(signal_1_red,LOW);
+     digitalWrite(signal_3_red,LOW);
+     digitalWrite(signal_1_yellow,LOW);
+     digitalWrite(signal_3_yellow,LOW);
+     
+     
+   }
+   if (time_slot==4)
+   {
+     for (int i=1;i<=10;i++)
+  
+  {
+     digitalWrite(signal_1_yellow,HIGH);
+     digitalWrite(signal_2_yellow,HIGH);
+     digitalWrite(signal_3_yellow,HIGH);
+     digitalWrite(signal_4_yellow,HIGH);
+     delay(1000);
+     digitalWrite(signal_1_yellow,LOW);
+     digitalWrite(signal_2_yellow,LOW);
+     digitalWrite(signal_3_yellow,LOW);
+     digitalWrite(signal_4_yellow,LOW);
+     delay(1000);
+  }
+   }
+  }
